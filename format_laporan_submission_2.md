@@ -43,16 +43,20 @@ Dataset yang digunakan adalah _Goodreads Books Dataset_ yang memuat 10.000 data 
 
 ### Gambaran Data
 
-| Kolom         | Deskripsi                                                                 |
-|---------------|--------------------------------------------------------------------------|
-| Book          | Judul buku                                                               |
-| Author        | Penulis buku                                                             |
-| Description   | Deskripsi singkat buku                                                   |
-| Genres        | Daftar genre buku (dalam format list)                                    |
-| Avg_Rating    | Rata-rata rating buku di Goodreads                                       |
-| Num_Ratings   | Jumlah user yang memberikan rating                                       |
-| URL           | Tautan ke halaman buku di Goodreads                                      |
+| Kolom | Deskripsi |
+| :--- | :--- |
+| Unnamed: 0 | Indeks baris dari dataset asli (kolom ini tidak digunakan dan akan dihapus). |
+| Book | Judul buku. |
+| Author | Penulis buku. |
+| Description | Deskripsi singkat mengenai isi buku. |
+| Genres | Daftar genre buku (disajikan dalam format list string). |
+| Avg_Rating | Rata-rata rating yang diberikan pengguna di Goodreads. |
+| Num_Ratings | Jumlah pengguna yang telah memberikan rating untuk buku tersebut. |
+| URL | Tautan (link) menuju halaman detail buku di situs Goodreads. |
 
+### Kondisi Missing Values
+
+Setelah melakukan pemeriksaan awal pada dataset, ditemukan adanya data yang hilang (*missing values*). Berdasarkan output `df.info()` pada notebook, teridentifikasi bahwa kolom **'Description'** memiliki **77 missing values** dari total 10.000 entri data. Kolom-kolom lainnya tidak menunjukkan adanya *missing values*. Informasi ini penting karena kolom 'Description' merupakan salah satu fitur kunci yang akan digunakan dalam *content-based filtering*, sehingga penanganan *missing values* ini akan menjadi bagian krusial dalam tahap *Data Preparation*.
 #### Statistik Data
 
 Jumlah data: **10.000 buku**
